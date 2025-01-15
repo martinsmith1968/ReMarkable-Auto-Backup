@@ -87,7 +87,9 @@ function backup_file() {
 
 function backup_files() {
     # Find and process all candidates
-    find "${source_dir}" -not -path "${dest_dir}*" -type f -newermt "${last_date}" | while read file; do backup_file "${file}"; done
+    find "${source_dir}" -not -path "${dest_dir}*" -type f -newermt "${last_date}" | while read file; do
+        backup_file "${file}"
+    done
 }
 
 function remove_old_backup_files() {
